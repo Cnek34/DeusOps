@@ -1,0 +1,6 @@
+**/__pycache__
+**/.dockerignore
+**/.env
+**/docker-compose*
+**/compose.y*ml
+**/Dockerfile*
