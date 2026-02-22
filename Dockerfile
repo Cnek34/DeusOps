@@ -1,4 +1,5 @@
-FROM node:20-alpine AS builder
+FROM alpine:3.19 AS builder
+RUN apk add --no-cache nodejs npm
 
 WORKDIR /app
 
@@ -8,7 +9,7 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-FROM nginx:alpine AS production
+FROM nginx:1.29-alpine AS production
 
 COPY --from=builder /app/dist /usr/share/nginx/html
 

@@ -7,3 +7,7 @@ services:
       - "8080:8080"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - site_static:/usr/share/nginx/html 
+
+volumes:
+  site_static:
