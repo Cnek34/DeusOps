@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+  system:
+    build:
+      context: .
+      dockerfile: system.Dockerfile
+    image: lab4-system-image
+
+  build:
+    build:
+      context: .
+      dockerfile: build.Dockerfile
+      additional_contexts:
+        system_img: "service:system"
+    image: lab4-build-image
+
+  app:
+    build:
+      context: .
+      dockerfile: runtime.Dockerfile
+      additional_contexts:
+        build_img: "service:build"
+    ports:
+      - "3000:3000"

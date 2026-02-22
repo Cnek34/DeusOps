@@ -1,4 +1,4 @@
-FROM system AS build
+FROM system_img
 
 COPY package*.json ./
 
